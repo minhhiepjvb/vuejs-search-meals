@@ -1,5 +1,5 @@
 <template>
-    <div class="mt-6 w-[800px] mx-auto">
+    <div class="mt-6 w-[800px] ml-auto mr-auto flex flex-col">
         <h1 class="text-5xl font-bold mb-5 ">{{ meal.strMeal }}</h1>
         <img :src="meal.strMealThumb" :alt="meal.strMeal" class="rounded-lg">
         <div class="grid grid-cols-1 sm:grid-cols-3 ">
@@ -13,7 +13,10 @@
                 <strong>Tag:</strong> {{ meal.strTags }}
             </div>
         </div>
-
+        <div class="my-4">
+            <h2 class="text-2xl font-semibold mb-3">Instructions</h2>
+            <p>{{ meal.strInstructions }}</p>
+        </div>
         <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 ">
             <div>
                 <h2 class="text-2xl font-semibold mb-3">Ingredient</h2>
@@ -36,7 +39,16 @@
                 </ul>
             </div>
         </div>
-        <pre>{{ meal }}</pre>
+        <div class="my-6 flex flex-col gap-2 border-l-4 border-double border-black">
+            <YouTubeButton :href="meal.strYoutube" class="p-2 bg-white text-red-700 hover:text-white">
+                <template v-slot:textInYoutubeBtn>
+                    Go to the YouTube Channel
+                </template>
+            </YouTubeButton>
+            <a :href="meal.strSource" class="p-2 flex-1 font-semibold text-green-800 rounded-lg hover:bg-green-900 hover:text-white
+                    transition hover:-translate-y-1 hover:scale-105 duration-300 ">View original source</a>
+        </div>
+        <!-- <pre>{{ meal }}</pre> -->
     </div>
 </template>
 
@@ -44,6 +56,7 @@
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router"
 import axiosClient from "../axiosClient";
+import YouTubeButton from "../components/YouTubeButton.vue";
 
 const route = useRoute();
 const meal = ref([])
