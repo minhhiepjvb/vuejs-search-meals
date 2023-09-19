@@ -1,6 +1,5 @@
 <template>
-    <header
-        class="bg-white shadow h-16 text-xl font-semibold flex justify-between items-center sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3">
+    <header class="bg-white shadow h-16 text-xl font-semibold flex justify-between items-center">
 
         <router-link :to="{ name: 'home' }"
             class="inline-flex items-center px-2 h-full  transition-colors hover:text-purple-300">

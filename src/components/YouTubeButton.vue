@@ -4,6 +4,7 @@
         <slot name="textInYoutubeBtn">Youtube</slot>
     </a>
 </template>
+
 <script setup>
 const props = defineProps({
     href: String
