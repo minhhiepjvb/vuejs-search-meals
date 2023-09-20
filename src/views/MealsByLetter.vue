@@ -13,8 +13,8 @@
         <MealItem v-for="meal of meals" :key="meal.idMeal" :meal="meal" />
     </div>
 
-    <div class="flex flex-col p-8" v-else>
-        There no meals hear
+    <div class="flex flex-col p-8 text-red-500" v-else>
+        There no meals here
     </div>
 </template>
 <script setup>
@@ -23,10 +23,11 @@ import store from '../store';
 import { computed, onMounted, watch, ref } from 'vue'
 import MealItem from "../components/MealItem.vue";
 
+const selectedLetter = ref(null);
 const route = useRoute();
 const letters = "ABCDEFGHIKLMNOPQRSTUVWXYZ".split("");
 const meals = computed(() => store.state.mealsByLetter)
-const selectedLetter = ref(null);
+
 
 watch(route, () => {
     store.dispatch('searchMealsByLetter', route.params.letter)
@@ -38,7 +39,7 @@ onMounted(() => {
 
 </script>
 
-<style>
+<style scoped>
 .active {
     transform: scale(1.5);
     border-bottom: solid black 2px;
