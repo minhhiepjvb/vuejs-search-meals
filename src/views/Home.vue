@@ -1,5 +1,5 @@
 <template>
-    <h1 class="inline-flex items-center mt-8 mx-8 text-3xl">Here, you have all the meal you want. Let enjoy it!</h1>
+    <h1 class="inline-flex items-center mt-8 mx-8 text-3xl">Here, you have all the meal that you want. Let enjoy it!</h1>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5 p-8 ">
         <MealItem v-for="meal of meals" :key="meal.idMeal" :meal="meal" />
     </div>
@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from "vue";
+import { onMounted, ref } from "vue";
 import axiosClient from "../axiosClient.js"
 import MealItem from "../components/MealItem.vue";
 
@@ -25,14 +25,6 @@ onMounted(async () => {
     }
 
 })
-
-// onMounted(() => {
-//     axiosClient.get('random.php')
-//         .then(({ data }) => {
-//             meals.value = data.meals;
-//         })
-// })
-
 console.log(meals);
 </script>
 

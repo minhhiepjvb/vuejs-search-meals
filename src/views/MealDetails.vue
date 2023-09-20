@@ -40,11 +40,10 @@
             </div>
         </div>
         <div class="my-6 flex flex-col gap-2 border-l-4 border-double border-black">
-            <YouTubeButton :href="meal.strYoutube" class="p-2 bg-white text-red-700 hover:text-white">
-                <template v-slot:textInYoutubeBtn>
-                    Go to the YouTube Channel
-                </template>
-            </YouTubeButton>
+            <a :href="meal.strYoutube"
+                class="p-2 flex-1 font-semibold bg-white text-red-700  hover:bg-red-700 hover:text-white  transition hover:-translate-y-1 hover:scale-105 duration-300">
+                Go to the YouTube Channel
+            </a>
             <a :href="meal.strSource" class="p-2 flex-1 font-semibold text-green-800 rounded-lg hover:bg-green-900 hover:text-white
                     transition hover:-translate-y-1 hover:scale-105 duration-300 ">View original source</a>
         </div>
