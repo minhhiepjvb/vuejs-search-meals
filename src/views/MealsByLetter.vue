@@ -9,12 +9,12 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 p-8 " v-if="meals.length > 0">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 p-8 " v-if="meals?.length > 0">
         <MealItem v-for="meal of meals" :key="meal.idMeal" :meal="meal" />
     </div>
 
     <div class="flex flex-col p-8 text-red-500" v-else>
-        There no meals here. Let pick a letter!
+        There no meals here. Let pick an another letter!
     </div>
 </template>
 <script setup>
@@ -23,11 +23,11 @@ import store from '../store';
 import { computed, onMounted, watch, ref } from 'vue'
 import MealItem from "../components/MealItem.vue";
 
-const selectedLetter = ref(null);
+
 const route = useRoute();
 const letters = "ABCDEFGHIKLMNOPQRSTUVWXYZ".split("");
 const meals = computed(() => store.state.mealsByLetter)
-
+const selectedLetter = ref(null);
 
 watch(route, () => {
     store.dispatch('searchMealsByLetter', route.params.letter)
