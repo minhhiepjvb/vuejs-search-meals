@@ -1,20 +1,38 @@
 <template>
-    <div class="flex flex-col p-8  ">
+    <h1 class="inline-flex items-center mt-8 mx-8 text-3xl">Here, you have all the meal you want. Let enjoy it!</h1>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-5 p-8 ">
+        <MealItem v-for="meal of meals" :key="meal.idMeal" :meal="meal" />
+    </div>
 
+    <div class="flex flex-col p-8  ">
+        {{ meals.strMeal }}
     </div>
 </template>
 
 <script setup>
 import { computed, onMounted, ref } from "vue";
-import store from "../store";
 import axiosClient from "../axiosClient.js"
+import MealItem from "../components/MealItem.vue";
 
-const ingredients = ref([])
+
+const meals = ref([])
 
 onMounted(async () => {
-    const response = await axiosClient.get('/list.php?i=list')
-    console.log(response.data);
-    ingredients.value = response.data
+    for (let i = 0; i < 9; i++) {
+        const response = await axiosClient.get('random.php')
+        const meal = response.data.meals[0];
+        meals.value.push(meal)
+    }
+
 })
+
+// onMounted(() => {
+//     axiosClient.get('random.php')
+//         .then(({ data }) => {
+//             meals.value = data.meals;
+//         })
+// })
+
+console.log(meals);
 </script>
 
