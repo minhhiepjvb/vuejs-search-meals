@@ -22,7 +22,7 @@ const keyWord = ref([]);
 const meals = computed(() => store.state.searchedMeals);
 
 function searchMeals() {
-    store.dispatch('searchMeals', keyWord.value)
+    store.dispatch('searchMealsByName', keyWord.value)
 }
 
 onMounted(() => {

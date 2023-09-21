@@ -47,7 +47,6 @@
             <a :href="meal.strSource" class="p-2 flex-1 font-semibold text-green-800 rounded-lg hover:bg-green-900 hover:text-white
                     transition hover:-translate-y-1 hover:scale-105 duration-300 ">View original source</a>
         </div>
-        <!-- <pre>{{ meal }}</pre> -->
     </div>
 </template>
 
@@ -55,7 +54,6 @@
 import { onMounted, ref } from "vue";
 import { useRoute } from "vue-router"
 import axiosClient from "../axiosClient";
-import YouTubeButton from "../components/YouTubeButton.vue";
 
 const route = useRoute();
 const meal = ref([])

@@ -58,7 +58,11 @@ export default {
 
 .active {
     border-bottom: solid 2px;
+
     --tw-border-opacity: 1;
     border-color: rgb(216 180 254 / var(--tw-border-opacity));
+
+    --tw-text-opacity: 1;
+    color: rgb(216 180 254 / var(--tw-text-opacity));
 }
 </style>

@@ -25,6 +25,5 @@ onMounted(async () => {
     }
 
 })
-console.log(meals);
 </script>
 
